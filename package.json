@@ -1,0 +1,23 @@
+{
+  "name": "brads-node-masterclass-api",
+  "version": "1.0.0",
+  "description": "dev camper backend api",
+  "main": "server.js",
+  "scripts": {
+    "start": "NODE_ENV=production node server",
+    "dev": "nodemon server"
+  },
+  "author": "Dean Lark",
+  "license": "MIT",
+  "dependencies": {
+    "colours": "^0.6.0-2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.5.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
