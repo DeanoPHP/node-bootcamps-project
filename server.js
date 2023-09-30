@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 // const logger = require('./middleware/logger');
 const morgan = require('morgan');
 const colours = require('colours');
+const errorHandler = require('./middleware/error');
 const connectDB = require('./config/db');
 
 // Load env variables
@@ -31,6 +32,9 @@ if (process.env.NODE_ENV === 'development') {
 
 // Mount routers
 app.use('/api/v1/bootcamps', bootcamps);
+
+// very important its called before above as middleware runs in a linear.
+app.use(errorHandler);
 
 app.get('/', (req, res) => {
     res.status(200).json({
