@@ -13,6 +13,7 @@ dotenv.config({ path: './config/config.env' });
 connectDB();
 
 const bootcamps = require('./routes/bootcamps');
+const courses = require('./routes/courses');
 
 // This enables us to use localhost on server side and localhost on different port to connect to backend
 const cors = require('cors');
@@ -32,6 +33,7 @@ if (process.env.NODE_ENV === 'development') {
 
 // Mount routers
 app.use('/api/v1/bootcamps', bootcamps);
+app.use('/api/v1/courses', courses);
 
 // very important its called before above as middleware runs in a linear.
 app.use(errorHandler);

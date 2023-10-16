@@ -11,7 +11,7 @@ const getBootcampEmails = async () => {
     const all = data.data;
 
     all.forEach(element => {
-        console.log(element.email);
+        // console.log(element.email);
     });
 }
 
