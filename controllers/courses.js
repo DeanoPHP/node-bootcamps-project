@@ -11,6 +11,8 @@ exports.getCourses = asyncHandler(async (req, res, next) => {
     let query;
 
     if (req.params.bootcampId) {
+        // Pass in bootcamp from model. Make sure bootcamp matches bootcamp params bootcampId.
+        // Remember bootcamp is a ref to our Bootcamp model..
         query = Course.find({ bootcamp: req.params.bootcampId });
     } else {
         query = Course.find().populate({
