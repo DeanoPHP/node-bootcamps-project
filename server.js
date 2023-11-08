@@ -16,6 +16,7 @@ connectDB();
 
 const bootcamps = require('./routes/bootcamps');
 const courses = require('./routes/courses');
+const auth = require('./routes/auth');
 
 // This enables us to use localhost on server side and localhost on different port to connect to backend
 const cors = require('cors');
@@ -42,6 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Mount routers
 app.use('/api/v1/bootcamps', bootcamps);
 app.use('/api/v1/courses', courses);
+app.use('/api/v1/auth', auth);
 
 // very important its called before above as middleware runs in a linear.
 app.use(errorHandler);

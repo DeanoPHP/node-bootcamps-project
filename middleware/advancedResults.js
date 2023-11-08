@@ -3,7 +3,7 @@ const { populate } = require("../models/Bootcamp");
 const advancedResults = (model, populate) => async (req, res, next) => {
     let query;
 
-    // Copy req.query
+    // Copy req.query so anything after ? like ?select=name,description
     const reqQuery = { ...req.query };
 
     // Fields to exclude
