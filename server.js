@@ -6,6 +6,7 @@ const fileupload = require('express-fileupload');
 const morgan = require('morgan');
 const colours = require('colours');
 const errorHandler = require('./middleware/error');
+const cookieParser = require('cookie-parser');
 const connectDB = require('./config/db');
 
 // Load env variables
@@ -26,6 +27,9 @@ const app = express();
 
 // Body parser
 app.use(express.json());
+
+// Add cookie-parser middleware
+app.use(cookieParser());
 
 app.use(cors());
 
