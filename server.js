@@ -1,12 +1,12 @@
 const path = require('path');
 const express = require('express');
 const dotenv = require('dotenv');
-// const logger = require('./middleware/logger');
-const fileupload = require('express-fileupload');
 const morgan = require('morgan');
 const colours = require('colours');
-const errorHandler = require('./middleware/error');
+const fileupload = require('express-fileupload');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
+const errorHandler = require('./middleware/error');
 const connectDB = require('./config/db');
 
 // Load env variables
@@ -19,9 +19,6 @@ const bootcamps = require('./routes/bootcamps');
 const courses = require('./routes/courses');
 const auth = require('./routes/auth');
 
-// This enables us to use localhost on server side and localhost on different port to connect to backend
-const cors = require('cors');
-
 // init express variable
 const app = express();
 
@@ -31,8 +28,6 @@ app.use(express.json());
 // Add cookie-parser middleware
 app.use(cookieParser());
 
-app.use(cors());
-
 // Dev logging middleware
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
@@ -40,6 +35,8 @@ if (process.env.NODE_ENV === 'development') {
 
 // fileupload
 app.use(fileupload());
+
+app.use(cors());
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
