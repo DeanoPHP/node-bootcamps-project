@@ -55,10 +55,10 @@ const sendTokenResponse = (user, statusCode, res) => {
   const options = {
     expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000),
     httpOnly: true
-  }
+  }  
 
   if (process.env.NODE_ENV ==='production') {
-    options.secure = true;
+    options.secure = true;  
   }
 
   res
@@ -74,12 +74,17 @@ const sendTokenResponse = (user, statusCode, res) => {
 // @route     POST /api/v1/auth/me
 // @access    Private
 exports.getMe = asyncHandler(async (req, res, next) => {
-  const user = await User.findById(req.user.id);
+  try {
+    const user = await User.findById(req.user.id);
 
-  res.status(200).json({
-    success: true,
-    data: user
-  });
+    res.status(200).json({
+      success: true,
+      data: user
+    });
+  } catch (err) {
+    console.log(err.message);
+  }
+  
 });   
 
 

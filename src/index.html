@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="index.js" defer></script>
+    <!-- <script src="index.js" defer></script> -->
     <script src="fetch.js" defer></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="style.css">
@@ -18,12 +18,28 @@
             <div class="heading-photo">
                 <img id="image" src="https://bigthink.com/wp-content/uploads/2023/02/AdobeStock_558949687.jpg?resize=480,270" width="100%" height="300px" alt="Main Img">
             </div>
-            <div class="fetchData"></div>
-            <div class="buttons">
-                <button type="submit" name="prev" id="prev">Prev</button>
-                <button type="submit" name="next" id="next">Next</button>
-            </div>
-        </div>
-    </main>
-</body>
-</html>
+            <form class="loginForm">
+                <label for="name">Name</label>
+                <input type="text" class="email" name="email" placeholder="enter email" />
+        
+                <label for="password">Password</label>
+                <input type="password" class="password" name="password" placeholder="enter your password" />
+                
+                <input type="submit" name="submit" value="Login" />
+            </form>
+
+            <!-- <form action="http://localhost:8080/api/v1/auth/register" method="POST" enctype="multipart/form-data">
+                <label for="name">Name</label>
+                <input type="text" name="name" placeholder="Enter Name" />
+
+                <label for="email">Email</label>
+                <input type="text" name="email" placeholder="enter email" />
+
+                <label for="password">Password</label>
+                <input type="password" name="password" placeholder="enter your password" />
+
+                <input type="submit" name="submit" value="Register" />
+            </form> -->
+
+            <!-- dean@gmail.com jr134244a -->
+            <!-- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NTMzYTNkNWUyNDQyMGE3NGQ2MWI0NCIsImlhdCI6MTY5OTk1MzIxNCwiZXhwIjoxNzAyNTQ1MjE0fQ.IYSinD9KfPIV66IHM74NaH4wQuGNyq-AFZ3QSbud5pI -->

@@ -18,7 +18,10 @@ router.route('/')
             path: 'bootcamp',
             select: 'name description'
       }),
-      getCourses)
+      getCourses);
+
+      // i think i messed up here oops below route looks wrong
+router.route('/')
       .post(protect, addCourse);
 
 router.route('/:id') 
@@ -26,4 +29,4 @@ router.route('/:id')
       .put(protect, updateCourse)
       .delete(protect, deleteCourse);
 
-module.exports = router;
+module.exports = router;   
