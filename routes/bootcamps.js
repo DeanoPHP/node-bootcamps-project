@@ -16,7 +16,7 @@ const courseRouter = require('./courses');
 
 const router = express.Router();
 
-const { protect } = require('../middleware/auth'); 
+const { protect, authorize } = require('../middleware/auth'); 
 
 // Re-route into other resource router
 router.use('/:bootcampId/courses', courseRouter);
@@ -24,16 +24,16 @@ router.use('/:bootcampId/courses', courseRouter);
 router.route('/radius/:zipcode/:distance').get(getBootcampsInRadius);
 
 router.route('/:id/photo')
-      .put(protect, bootcampPhotoUpload);
+      .put(protect, authorize('publisher', 'admin'), bootcampPhotoUpload);
 
 router.route('/')
       // advancedResults takes in the model and any populate so courses in this below case
       .get(advancedResults(Bootcamp, 'courses'), getBootcamps)
-      .post(protect, createBootcamps);
+      .post(protect, authorize('publisher', 'admin'), createBootcamps);
 
 router.route('/:id')
       .get(getBootcamp)
-      .put(protect, updateBootcamps)
-      .delete(protect, deleteBootcamp);
+      .put(protect, authorize('publisher', 'admin'), updateBootcamps)
+      .delete(protect, authorize('publisher', 'admin'), deleteBootcamp);
 
 module.exports = router;
